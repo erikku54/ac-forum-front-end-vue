@@ -7,7 +7,7 @@ const routes = [
   {
     path: '/',
     name: 'root',
-    redirect: '/restaurantspage',
+    redirect: '/restaurants',
   },  
   {
     path: '/signin',
@@ -20,22 +20,22 @@ const routes = [
     component: ()=>import('../views/SignUp.vue'),
   },
   {
-    path: '/restaurantspage',
-    name: 'restaurants-page',
+    path: '/restaurants',
+    name: 'restaurants',
     component: RestaurantsPage,
   },
   {
-    path: '/restaurantsfeeds',
+    path: '/restaurants/feeds',
     name: 'restaurants-feeds',
     component: ()=>import('../views/RestaurantsFeeds.vue'),
   },
   {
-    path: '/restaurantstop',
+    path: '/restaurants/top',
     name: 'restaurants-top',
     component: ()=>import('../views/RestaurantsTop.vue'),
   },
   {
-    path: '/userstop',
+    path: '/users/top',
     name: 'users-top',
     component: ()=>import('../views/UsersTop.vue'),
   },
@@ -48,6 +48,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
+  linkExactActiveClass: 'active',
   routes
 })
 
