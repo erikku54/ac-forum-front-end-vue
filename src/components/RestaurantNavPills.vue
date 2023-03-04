@@ -21,6 +21,7 @@
           {{ category.name }}
         </router-link>
       </li>
+
     </ul>
   </template>
   

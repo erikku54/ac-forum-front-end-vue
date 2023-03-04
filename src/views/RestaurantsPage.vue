@@ -11,6 +11,7 @@
             <RestaurantCard v-for="restaurant in restaurants" :key="restaurant.id" :initial-restaurant="restaurant"/>
         </div>
         <!-- 分頁標籤 RestaurantPagination -->
+            <RestaurantPagination v-if="totalPage.length > 1" :category-id="categoryId" :current-page="currentPage" :total-page="totalPage" :previous-page="previousPage" :next-page="nextPage"/>
     </div>
 </template>
 
@@ -18,6 +19,7 @@
 import NavTabs from './../components/NavTabs.vue'
 import RestaurantCard from '@/components/RestaurantCard.vue';
 import RestaurantNavPills from '@/components/RestaurantNavPills.vue';
+import RestaurantPagination from '@/components/RestaurantPagination.vue';
 
 let dummyData={
         "restaurants": [
@@ -300,7 +302,8 @@ export default {
     components: {
         NavTabs,
         RestaurantCard,
-        RestaurantNavPills
+        RestaurantNavPills,
+        RestaurantPagination
     },
     created () {
         this.fetchRestaurants()
