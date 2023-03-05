@@ -6,9 +6,9 @@
         <div class="card-body">
             <div v-for="comment in comments" :key="comment.id">
                 <h4>
-                <a href="#">
+                <router-link :to="{ name: 'restaurant-single', params: {id: comment.Restaurant.id}}">
                     {{comment.Restaurant.name}}
-                </a>
+                </router-link>
                 </h4>
                 <p>{{comment.text}}</p>by
                 <a href="#">
@@ -22,7 +22,8 @@
 </template>
 
 <script>
-    import moment from 'moment'
+    // import moment from 'moment'
+    import mixins from '../utils/mixins'
 
     export default {
         props: {
@@ -31,15 +32,21 @@
                 required: true,
             }
         },
-        methods: {
-            fromNow(datetime) {
-                if (!datetime) {
-                    return '-'
-                }
 
-                return moment(datetime).fromNow()
-            }
-        }
+        setup () {
+            const {fromNow} = mixins();
+            return {fromNow}
+        },
+
+        // methods: {
+        //     fromNow(datetime) {
+        //         if (!datetime) {
+        //             return '-'
+        //         }
+
+        //         return moment(datetime).fromNow()
+        //     }
+        // }
     }
 
 </script>

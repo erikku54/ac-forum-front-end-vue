@@ -9,7 +9,8 @@
         <div class="col-3" v-for="(user, index) in users" :key="user.id">
           <a href="#">
             <img
-              src="../assets/cute-boy-face.jpg">
+              src="../assets/cute-boy-face-cartoon-cute-boy-face-cartoon-vector-illustration-graphic-design-110654225.jpg"
+              width="140" height="140">
           </a>
           <h2>{{user.name}}</h2>
           <span class="badge bg-secondary">追蹤人數：{{user.FollowerCount}}</span>

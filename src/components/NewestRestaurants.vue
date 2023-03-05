@@ -7,7 +7,7 @@
 
             <div v-for="restaurant in restaurants" :key="restaurant.id">
                 <h4>
-                    <a href="#">{{restaurant.name}}</a>
+                    <router-link :to="{name:'restaurant-single', params: {id: restaurant.id}}">{{restaurant.name}}</router-link>
                     <small>{{restaurant.Category?restaurant.Category.name:'未分類'}}</small>
                 </h4>
                 <p>{{restaurant.description}}</p>
@@ -19,7 +19,8 @@
 </template>
 
 <script>
-    import moment from 'moment'
+    // import moment from 'moment'
+    import mixins from '@/utils/mixins'
 
     export default{
         props: {
@@ -28,14 +29,18 @@
                 required: true,
             }
         },
-        methods: {
-            fromNow (datetime) {
-                if (!datetime) {
-                    return '-'
-                }
+        // methods: {
+        //     fromNow (datetime) {
+        //         if (!datetime) {
+        //             return '-'
+        //         }
 
-                return moment(datetime).fromNow()
-            }
+        //         return moment(datetime).fromNow()
+        //     }
+        // },
+        setup () {
+            const {fromNow} = mixins();
+            return {fromNow}
         }
     }
 
