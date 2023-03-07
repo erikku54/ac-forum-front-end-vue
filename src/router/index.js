@@ -50,6 +50,11 @@ const routes = [
     component: ()=>import('../views/UsersTop.vue'),
   },
   {
+    path: '/users/:id',
+    name: 'user-single',
+    component: ()=>import('../views/UserSingle.vue'),
+  },
+  {
     path: '/:catchAll(.*)',
     name: 'not-found',
     component: NotFound,
