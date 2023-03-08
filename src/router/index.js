@@ -66,6 +66,11 @@ const routes = [
     component: ()=>import('@/views/AdminRestaurants.vue')
   },
   {
+    path: '/admin/restaurants/:id',
+    name: 'admin-restaurant-single',
+    component: ()=>import('@/views/AdminRestaurantSingle.vue')
+  },
+  {
     path: '/:catchAll(.*)',
     name: 'not-found',
     component: NotFound,
