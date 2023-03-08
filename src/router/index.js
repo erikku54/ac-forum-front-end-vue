@@ -3,6 +3,7 @@ import NotFound from '../views/NotFound.vue'
 import SignIn from '../views/SignIn.vue'
 import RestaurantsPage from '../views/RestaurantsPage.vue'
 
+
 const routes = [
   {
     path: '/',
@@ -53,6 +54,16 @@ const routes = [
     path: '/users/:id',
     name: 'user-single',
     component: ()=>import('../views/UserSingle.vue'),
+  },
+  {
+    path: '/admin',
+    exact: true,
+    redirect: '/admin/restaurants'
+  },
+  {
+    path: '/admin/restaurants',
+    name: 'admin-restaurants',
+    component: ()=>import('@/views/AdminRestaurants.vue')
   },
   {
     path: '/:catchAll(.*)',
